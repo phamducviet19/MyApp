@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { actions, RichEditor, RichToolbar } from 'react-native-pell-rich-editor'
 import { theme } from '../constants/theme'
@@ -36,21 +36,17 @@ const RichTextEditor = ({editorRef,onChange}) => {
             disable={false}
         />
         <RichEditor
-            // ref={editorRef}
-            // containerStyle={styles.rich}
-            // initialContentHTML=""
-            // editorStyle={{
-            //     backgroundColor: 'white',
-            //     color: '#333',//theme.colors.textDark
-            //     placeholderColor: 'gray',
-            //     contentCSSText: 'font-size: 16px; padding: 10px;', // ⚠️ Cái này là quan trọng!
-            // }}
-            // placeholder={"What's on your mind?"}
-            // onChange={onChange}
             ref={editorRef}
-        initialContentHTML="<p>Hello World!</p>"
-        placeholder="Start typing..."
-        onChange={(text) => console.log('Editor content:', text)}
+            containerStyle={styles.rich}
+            initialContentHTML=""
+            editorStyle={{
+                backgroundColor: 'white',
+                color: theme.colors.textDark,
+                placeholderColor: 'gray',
+                contentCSSText: 'font-size: 16px; padding: 10px;', // ⚠️ Cái này là quan trọng!
+            }}
+            placeholder={"What's on your mind?"}
+            onChange={onChange}          
         />
     </View>
   )
@@ -62,7 +58,9 @@ const styles = StyleSheet.create({
     richBar:{
         borderTopRightRadius : theme.radius.xl,
         borderTopLeftRadius: theme.radius.xl,
-        backgroundColor: theme.colors.gray
+        backgroundColor: theme.colors.gray,
+        flexDirection: 'row'
+        
     },
     listStyle:{
 

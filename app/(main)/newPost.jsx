@@ -8,6 +8,7 @@ import Avatar from '../../components/avatar'
 import { useAuth } from '../../contexts/AuthContext'
 import RichTextEditor from '../../components/RichTextEditor'
 import { useRouter } from 'expo-router'
+// import { RichToolbar } from 'react-native-pell-rich-editor'
 
 const NewPost = () => {
   const {user} = useAuth();
@@ -20,7 +21,7 @@ const NewPost = () => {
     <ScreenWrapper bg='white'>
       <View style={styles.container}>
         <Header title="Create Post"/>
-        <ScrollView contentContainerStyle={{gap:20}}>
+        <ScrollView contentContainerStyle={{gap:20}} nestedScrollEnabled={true}>
           <View style={styles.header}>
             <Avatar
               uri={user?.image}
